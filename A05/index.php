@@ -58,7 +58,7 @@ $results = executeQuery(query: $query);
                                 <h4 class="card-user">
                                     <?php echo $post['firstName']." ".$post['lastName'] ?> • <span
                                         class="card-username text-secondary" style="font-size: 18px;">@
-                                        <?php echo $post['username'] ?>
+                                        <?php echo $post['username']?>
                                     </span> </h5>
                                     <h7 class="card-time text-secondary">
                                         <?php echo $post['dateTime'] ?>
