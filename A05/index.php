@@ -69,13 +69,9 @@ $results = executeQuery(query: $query);
                                     <?php echo $post['content'] ?>
                                 </p>
                             </div>
-                            <!-- <div class="card-body comsec d-flex justify-content-center" style="display: none;">
-                              <h5>Hello</h5>
-                            </div> -->
                             <div class="card-body d-flex justify-content-center flex-wrap">
                                 <button class="btn mx-3 btn-primary">Like</button>
-                                <button class="btn mx-3 btn-primary" onclick="expandContent()"
-                                    id="btnExpand">Comment</button>
+                                <button class="btn mx-3 btn-primary">Comment</button>
                                 <button class="btn mx-3 btn-primary">Share</button>
                             </div>
                         </div>
@@ -103,23 +99,6 @@ $results = executeQuery(query: $query);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script> 
-    //   var display = "none";
-    // function expandContent() {
-    //   var comsec = document.getElementById("comsec");
-    //   var btnExpand = document.getElementById("btnExpand");
-
-    //   if (display == "none") {
-    //     comsec.style.display = "block";
-    //     display = "block";
-    //     btnExpand.innerHTML = "Close";
-    //   } else {
-    //     comsec.style.display = "none";
-    //     display = "none";
-    //     btnExpand.innerHTML = "Learn more";
-    //   }
-    // }
-    </script>
 </body>
 
 </html>
