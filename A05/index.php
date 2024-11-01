@@ -1,7 +1,7 @@
 <?php
 include("connect.php");
 
-$query = "SELECT * FROM posts LEFT JOIN userInfo ON posts.userID = userInfo.userID LEFT JOIN users ON posts.userID = users.userID ORDER BY dateTime ASC";
+$query = "SELECT * FROM posts LEFT JOIN userInfo ON posts.userID = userInfo.userID LEFT JOIN users ON posts.userID = users.userID ORDER BY dateTime DESC";
 $results = executeQuery(query: $query);
 ?>
 
