@@ -1,8 +1,19 @@
 <?php
 include("connect.php");
 
+$currentDate = date("Y-m-d"); 
+
+if(isset($_POST['btnSubmit'])){
+    $content = $_POST['content'];
+
+    $twtQuery = "INSERT INTO posts(userID, content, dateTime, privacy, isDeleted, attachment, cityID, provinceID) VALUES (1, '$content', '$currentDate', 'public', 'no', '', 1, 1)";
+    executeQuery($twtQuery);
+
+}
+
 $query = "SELECT * FROM posts LEFT JOIN userInfo ON posts.userID = userInfo.userID LEFT JOIN users ON posts.userID = users.userID ORDER BY dateTime DESC";
 $results = executeQuery(query: $query);
+
 ?>
 
 <!doctype html>
@@ -41,13 +52,21 @@ $results = executeQuery(query: $query);
                 </div>
             </div>
 
-
             <div class="col-9 pt-3" style="border: 1px solid #6c757d;">
                 <div class="row display-6 px-3">
                     For You
                 </div>
+
                 <div class="row">
                     <div class="col-10">
+                    <div class="card mx-5 my-4 p-4 rounded-3 shadow">
+                        <form method="post" class="col-12 d-flex flex-column">
+                        <input class="form-control form-control-lg mb-2" type="text" name="content" placeholder="What's on your mind?">
+                            <button type="submit" name="btnSubmit" class="mt-2 btn btn-primary align-self-end">
+                            Post
+                            </button>
+                        </form>
+                    </div>
                         <?php
         if (mysqli_num_rows($results) > 0) {
           while ($post = mysqli_fetch_assoc($results)) {
@@ -57,7 +76,8 @@ $results = executeQuery(query: $query);
                             <div class="card-body">
                                 <h4 class="card-user">
                                     <?php echo $post['firstName']." ".$post['lastName'] ?> • <span
-                                        class="card-username text-secondary" style="font-size: 18px;">@<?php echo $post['username']?>
+                                        class="card-username text-secondary" style="font-size: 18px;">@
+                                        <?php echo $post['username']?>
                                     </span> </h5>
                                     <h7 class="card-time text-secondary">
                                         <?php echo $post['dateTime'] ?>
@@ -69,9 +89,9 @@ $results = executeQuery(query: $query);
                                 </p>
                             </div>
                             <div class="card-body d-flex justify-content-center flex-wrap">
-                                <button class="btn mx-3 btn-primary">Like</button>
-                                <button class="btn mx-3 btn-primary">Comment</button>
-                                <button class="btn mx-3 btn-primary">Share</button>
+                                <button class="btn mb-1 mx-3 btn-primary">Like</button>
+                                <button class="btn mb-1 mx-3 btn-primary">Comment</button>
+                                <button class="btn mb-1 mx-3 btn-primary">Share</button>
                             </div>
                         </div>
                         <?php
