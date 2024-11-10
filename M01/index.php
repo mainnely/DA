@@ -16,6 +16,15 @@ $results = executeQuery(query: $query);
 
 ?>
 
+<style>
+    @media (max-width: 1000px) {
+  .navText span {
+    display: none !important;
+  }
+}
+
+</style>
+
 <!doctype html>
 <html lang="en">
 
@@ -37,22 +46,23 @@ $results = executeQuery(query: $query);
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3 pt-3" style="border: 1px solid #6c757d;">
-                <div class="row h4 text-secondary m-4 d-flex align-items-center">
-                    <img src="img/home.png" style="width:48px;" /> Home
+            <div class="col-3 col-sm-2 pt-3" style="border: 1px solid #6c757d;">
+                <div class="row h5 navText text-secondary m-4 d-flex justify-content-start">
+                    <img src="img/home.png" style="width:48px; margin:3px; position:absolute;" /> <span style="margin-left: 35px; position:relative;">Home</span>
                 </div>
-                <div class="row h4 text-secondary m-4 d-flex align-items-center">
-                    <img src="img/search.png" style="width:48px;" /> Explore
+                <div class="row h5 navText text-secondary m-4 d-flex justify-content-start">
+                    <img src="img/search.png" style="width:48px; margin:3px; position:absolute;" /> <span style="margin-left: 35px; position:relative;">Explore</span>
                 </div>
-                <div class="row h4 text-secondary m-4 d-flex align-items-center">
-                    <img src="img/bell.png" style="width:48px;" /> Notifications
+                <div class="row h5 navText text-secondary m-4 d-flex justify-content-start">
+                    <img src="img/bell.png" style="width:48px; margin:3px; position:absolute;" /> <span style="margin-left: 35px; position:relative;">Notifications</span>
                 </div>
-                <div class="row h4 text-secondary m-4 d-flex align-items-center">
-                    <img src="img/email.png" style="width:48px;" /> Messages
+                <div class="row h5 navText text-secondary m-4 d-flex justify-content-start">
+                    <img src="img/email.png" style="width:48px; margin:3px; position:absolute;" /> <span style="margin-left: 35px; position:relative;">Messages</span>
                 </div>
             </div>
 
-            <div class="col-9 pt-3" style="border: 1px solid #6c757d;">
+
+            <div class="col-9 col-sm-10 pt-3" style="border: 1px solid #6c757d;">
                 <div class="row display-6 px-3">
                     For You
                 </div>
