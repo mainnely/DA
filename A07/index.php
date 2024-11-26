@@ -20,6 +20,16 @@ if (isset($_POST['btnDelete'])) {
 $query = "SELECT * FROM posts LEFT JOIN userInfo ON posts.userID = userInfo.userID LEFT JOIN users ON posts.userID = users.userID ORDER BY dateTime DESC";
 $results = executeQuery(query: $query);
 
+if (isset($_POST['btnEdit'])) {
+    $content = $_POST['content'];
+    $postID = $_POST['editContent'];
+
+    $editQuery = "UPDATE posts SET content='$content' WHERE postID='$postID'";
+    executeQuery($editQuery);
+
+    header('Location: ./');
+}
+
 ?>
 
 <style>
@@ -120,9 +130,44 @@ $results = executeQuery(query: $query);
                                                 </form>
                                             </div>
                                             <div class="col-1">
-                                                <a href="edit.php?id=<?php echo $post['postID'] ?>">
+                                                <!-- <a href="edit.php?id=<?php echo $post['postID'] ?>">
                                                     <button class="btn btn-primary">Edit</button>
-                                                </a>
+                                                </a> -->
+
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    Edit
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="editModal" tabindex="-1"
+                                                    aria-labelledby="editModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="editModalLabel">Edit Post
+                                                                </h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                    aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form method="post">
+                                                                    <input type="hidden" value="<?php echo $post['postID'] ?>" name="editContent">
+                                                                    <input value="<?php echo $post['content'] ?>"
+                                                                        class="mt-3 form-control" type="text" name="content"
+                                                                        required>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" name="btnEdit" class="btn btn-primary">Save
+                                                                    changes</button>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <h7 class="card-time text-secondary">
