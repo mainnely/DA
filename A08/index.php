@@ -37,11 +37,17 @@ $airlineQueryResults = executeQuery($airlineQuery);
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
+<style>
+    body{
+        overflow-x: hidden;
+    }
+</style>
+
 <body data-bs-theme="dark">
 
     <div class="container mb-5 mt-5">
         <div class="row ">
-            <div class="col">
+            <div class="col p-0">
                 <div class="card m-3 p-4 shadow-sm text-center">
                     <div class="display-3">
                         PUP Airport
@@ -52,11 +58,11 @@ $airlineQueryResults = executeQuery($airlineQuery);
     </div>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col p-0">
                 <div class="card mx-3">
-                    <form class="d-flex mt-3 mx-4">
+                    <form class="d-flex flex-wrap mt-3 mx-4">
                             <label for="airlineSelect" class="m-2">Airline Type</label>
-                            <select class="form-control mx-2 p-2" id="airlineSelect" name="airlineName"
+                            <select class="form-control w-md-auto mx-2 p-2" id="airlineSelect" name="airlineName"
                                 style="width: auto;">
                                 <option value="">Any</option>
                                 <?php
@@ -76,7 +82,7 @@ $airlineQueryResults = executeQuery($airlineQuery);
                             </select>
 
                             <label for="sort" class="m-2">Sort By</label>
-                            <select id="sort" name="sortTable" class="ms-2 form-control" style="width: fit-content">
+                            <select id="sort" name="sortTable" class="ms-2 form-control w-md-auto " style="width: fit-content">
                                 <option value="">None</option>
                                 <option <?php if ($sortTable == "flightNumber") {
                                     echo "selected";
@@ -101,7 +107,7 @@ $airlineQueryResults = executeQuery($airlineQuery);
                             </select>
 
                             <label for="order" class="m-2">Order By</label>
-                            <select id="order" name="orderTable" class="ms-2 form-control" style="width: fit-content">
+                            <select id="order" name="orderTable" class="ms-2 form-control w-md-auto " style="width: fit-content">
                                 <option <?php if ($orderTable == "ASC") {echo "selected";} ?> value="ASC">Ascending</option>
                                 <option <?php if ($orderTable == "DESC") {echo "selected";} ?> value="DESC">Descending</option>
                             </select>
@@ -110,7 +116,7 @@ $airlineQueryResults = executeQuery($airlineQuery);
 
                     <div class="row">
                     <div class="col">
-                        <div class="table">
+                        <div class="table-responsive">
                             <table class="table table-hover mt-2">
                                 <thead>
                                     <tr class>
